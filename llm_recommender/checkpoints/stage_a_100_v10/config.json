@@ -1,0 +1,58 @@
+{
+  "data": {
+    "user_sequences_path": "/space/mcdonald-syn01/1/projects/jsawant/llm_recommender/dataset/filtered_user_sequences.jsonl.gz",
+    "item_metadata_path": "/space/mcdonald-syn01/1/projects/jsawant/llm_recommender/dataset/filtered_Kindle_Store.jsonl.gz",
+    "train_ratio": 0.8,
+    "val_ratio": 0.1,
+    "min_sequence_length": 3,
+    "max_sequence_length": 50,
+    "seed": 42,
+    "max_train_sequences": 100000
+  },
+  "model": {
+    "base_llm": "gpt2",
+    "embedding_dim": 128,
+    "freeze_llm_stage_a": false,
+    "freeze_llm_stage_b": false,
+    "random_init_stage_a_llm": false,
+    "use_lora": false,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "use_embedding_fusion": false,
+    "fusion_weight": 0.7
+  },
+  "embeddings": {
+    "lambda_c": 0.001,
+    "lambda_t": 0.001,
+    "temperature": 0.07
+  },
+  "stage_a": {
+    "epochs": 10,
+    "batch_size": 64,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.001,
+    "max_grad_norm": 1.0,
+    "loss_weights": {
+      "collaborative": 1.0,
+      "content": 0.0,
+      "contrastive": 0.0,
+      "cf_bpr": 0.2,
+      "regularization": 0.0
+    },
+    "collaborative": {
+      "negative_samples": 30,
+      "use_bpr_loss": true
+    },
+    "content": {
+      "max_text_length": 128
+    }
+  },
+  "training": {
+    "device": "cuda:1",
+    "mixed_precision": "no",
+    "logging_steps": 500,
+    "eval_steps": 10000,
+    "save_steps": 10000
+  }
+}
