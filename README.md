@@ -1,3 +1,3 @@
-# cse258-course-project
+# CSE258-Course-Project
 
-Hello
+Next-item prediction task given the user and sequence of items sorted according to time.
