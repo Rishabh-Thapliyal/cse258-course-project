@@ -53,7 +53,7 @@ def main(argv: List[str]) -> int:
     parser = argparse.ArgumentParser(description="Merge two Jupyter notebooks (including outputs) into one.")
     parser.add_argument("first", help="Path to first .ipynb (will appear first)")
     parser.add_argument("second", help="Path to second .ipynb (will appear after the first)")
-    parser.add_argument("-o", "--output", default="Combined.ipynb", help="Output .ipynb path")
+    parser.add_argument("-o", "--output", default="Combined_3.ipynb", help="Output .ipynb path")
     parser.add_argument("--no-separator", action="store_true", help="Do not insert a markdown separator between notebooks")
     args = parser.parse_args(argv)
 
